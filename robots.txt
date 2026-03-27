@@ -1,6 +1,4 @@
 User-agent: *
 Allow: /
-Disallow: /wp-
-Disallow: /wcf-
 
 Sitemap: https://ads.controle.sa/sitemap.xml
