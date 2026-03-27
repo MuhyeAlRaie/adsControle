@@ -11,36 +11,33 @@ RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
 RewriteRule ^ https://%1%{REQUEST_URI} [L,R=301]
 
-# منع روابط WordPress القديمة
+# Root
+RewriteRule ^$ index.html [L]
+
+# Allow important files
+RewriteRule ^robots\.txt$ - [L]
+RewriteRule ^sitemap\.xml$ - [L]
+RewriteRule ^ads\.txt$ - [L]
+
+# Block WordPress patterns
 RewriteCond %{QUERY_STRING} (^|&)(p=|page_id=) [NC]
 RewriteRule ^ - [R=404,L]
-
-# منع أي مسارات WordPress
 RewriteRule ^wp-.* - [R=404,L]
 RewriteRule ^wcf-.* - [R=404,L]
 
-# السماح بالملفات والمجلدات الموجودة
+# Existing files/folders
 RewriteCond %{REQUEST_FILENAME} -f [OR]
 RewriteCond %{REQUEST_FILENAME} -d
 RewriteRule ^ - [L]
 
-# تحويل /home → home.html
-# تحويل /privacy → privacy.html
-# تحويل /terms → terms.html
+# Map clean URLs to .html
 RewriteCond %{REQUEST_FILENAME}.html -f
 RewriteRule ^(.+)$ $1.html [L]
 
-# الصفحة الرئيسية
-RewriteRule ^$ index.html [L]
-
-RewriteRule ^robots\.txt$ - [L]
-
-RewriteRule ^sitemap\.xml$ - [L]
-
-# أي شيء غير موجود → 404
-RewriteRule . - [R=404,L]
-
 </IfModule>
+
+# Proper 404
+ErrorDocument 404 /404.html
 
 # 2. Set Default File (Load index.html instead of index.php)
 DirectoryIndex index.html
