@@ -39,7 +39,7 @@ RewriteRule . - [R=404,L]
 </IfModule>
 
 # 2. Set Default File (Load index.html instead of index.php)
-DirectoryIndex home.html
+DirectoryIndex index.html
 
 # 3. Browser Caching (Speeds up site on repeat visits)
 <IfModule mod_expires.c>
