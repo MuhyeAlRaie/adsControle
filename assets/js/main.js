@@ -92,7 +92,7 @@ const translations = {
 
     },
     ar: {
-        company_name: "التحكم والكفاءة",
+        company_name: "تحكم وترشيد",
         nav_home: "الرئيسية",
         nav_about: "من نحن",
         nav_products: "منتجاتنا",
@@ -207,21 +207,21 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Language State
-    let currentLang = 'en';
+    let currentLang = 'ar';
     const langToggleBtn = document.getElementById('lang-toggle');
     const htmlTag = document.documentElement;
     const bootstrapLink = document.getElementById('bootstrap-css');
 
     // Toggle Language Function
     langToggleBtn.addEventListener('click', () => {
-        currentLang = currentLang === 'en' ? 'ar' : 'en';
+        currentLang = currentLang === 'ar' ? 'en' : 'ar';
 
         // Update HTML attributes
         htmlTag.setAttribute('lang', currentLang);
-        htmlTag.setAttribute('dir', currentLang === 'ar' ? 'rtl' : 'ltr');
+        htmlTag.setAttribute('dir', currentLang === 'en' ? 'ltr' : 'rtl');
 
         // Update Button Text
-        langToggleBtn.textContent = currentLang === 'en' ? 'العربية' : 'English';
+        langToggleBtn.textContent = currentLang === 'ar' ? 'English' : 'العربية';
 
         // Swap Bootstrap CSS for RTL support
         if (currentLang === 'ar') {
