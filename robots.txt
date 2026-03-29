@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://ads.controle.sa/sitemap.xml
+Sitemap: https://controlandefficiency.sa/sitemap.xml
