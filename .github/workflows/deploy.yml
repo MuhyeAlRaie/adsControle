@@ -22,7 +22,7 @@ jobs:
         password: ${{ secrets.FTP_PASSWORD }}
         
         # CRITICAL: This is the folder where your website lives on Bluehost
-        server-dir: /public_html/ads/
+        server-dir: /public_html/adsControle/
         
         # Don't upload the internal github files to your server
         exclude: |
